@@ -1,18 +1,12 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: About 
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+##Hello!
 
-### Getting Started
+Welcome to speactra.se. My name is Alexander Eriksson and is also known as the electronic music producer Speactra. Mainly this site is for posting the music that I make, and also share my thoughts and tips regarding everything around musicproducing, music I like and more. I am also hosting a Podcast, EvolQue, which you can find in the Music-section of the site.
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+My studio consists of a laptop, Ableton Push, Axiom 49, a Record 13c accordion, a guitar and some various flutes. The software that I am using is Ableton Live 9.
 
-### Example Content
 
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
-
-### Questions?
-
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
