@@ -1,0 +1,102 @@
+---
+layout: post
+title: "Jolla/Sailfish OS tips and tricks"
+categories: jolla
+tags: [jolla,documentation]
+author: "Alexander Eriksson"
+image: jolla.png
+---
+<p><i>This is just some of my notes for Sailfish OS.</i></p>
+<h4>USB Internet Sharing</h4>
+<p>Adds the option to share your connection from the Jolla to PC through USB. Install from Jollas repos<br />
+<i>Seems to lag down the OS (SFOS 3.0, XA2)</i></p>
+<p><code>$ pkcon install usb-moded-connection-sharing-android-config</code></p>
+<h4>Pull .apk from an android device and transfer to Jolla</h4>
+<p>Searches for an apk on a android device and pulls it to computer through ADB. Then transfer the file to Jolla with ssh.</p>
+<h5>Connect to the android device through USB, then run from PC:</h5>
+<p><code>$ adb shell pm list packages<br />
+$ adb shell pm path com.example.someapp<br />
+$ adb pull /data/app/com.example.someapp-2.apk</code></p>
+<h5>Transfer the apk from PC to Jolla:</h5>
+<p><code>$ scp com.example.someapp-2.apk nemo@192.168.1.*:/home/nemo/</code></p>
+<h4>Check Battery Status</h4>
+<p><code>$ upower -d</code></p>
+<h4>CSD tool</h4>
+<p>In case your Jolla is not behaving properly there is a way of running various tests to check the potential problem. To enter the testing app, you can either type<br />
+<code>*#*#310#*#*</code><br />
+on the phone’s dialer, or type<br />
+<code>$ csd</code><br />
+in the terminal, while you are in the developer mode.</p>
+<h4>Jolla TOHKBD</h4>
+<p>Software for TOHKBD is available at kimmolis repo:<br />
+<a href="https://build.merproject.org/package/show/home:kimmoli:tohs/tohkbd2" target="_blank">https://build.merproject.org/package/show/home:kimmoli:tohs/tohkbd2</a></p>
+<p>TOHKBD FAQ:<br />
+<a href="https://together.jolla.com/question/96836/tohkbd-faq/" target="_blank">https://together.jolla.com/question/96836/tohkbd-faq/</a></p>
+<h4>Install warehouse for OpenRepos.net:</h4>
+<p>Download latest rpm for armv7hl: <a href="https://openrepos.net/content/basil/warehouse-sailfishos" target="_blank">https://openrepos.net/content/basil/warehouse-sailfishos</a><br />
+transfer to Jolla and open in File Browser and install.</p>
+<h4>Wallpapers</h4>
+<p><a href="https://www.flickr.com/photos/114520695@N04/albums" target="_blank">https://www.flickr.com/photos/114520695@N04/albums</a></p>
+<h4>PKCON</h4>
+<p><code>$ pkcon get-updates<br />
+$ pkcon search name sailfish<br />
+$ pkcon install "libsailfishapp-devel"<br />
+$ pkcon remove "libsailfishapp-devel"</code></p>
+<h4>Unison Sailfish</h4>
+<p><code><br />
+pkcon install name zypper<br />
+zyper ar -f http://repo.merproject.org/obs/home:/temev:/unison/sailfish_latest_armv7hl/home:temev:unison.repo<br />
+zypper install unison<br />
+</code></p>
+<h5>Fix ssh-login for unsion</h5>
+<p>On the sailfish device:<br />
+<code>$ ssh-keygen -t rsa</code><br />
+<i>(leave empty on the choices)</i><br />
+Creates: .ssh/id_rsa.pub</p>
+<p>If ~/.ssh does not exist on the target server, create it.<br />
+<code>$ ssh user@serverurl mkdir -p .ssh</code></p>
+<p>Send the certificate to target server:<br />
+<code>$ cat .ssh/id_rsa.pub | ssh speactra@speactra.mail.se 'cat >> .ssh/authorized_keys'</code></p>
+<p>---<br />
+Optionally:<br />
+ssh-keygen<br />
+ssh-copy-id [serverurl]</p>
+<h5> Sync with Sailfish OS device </h5>
+<p>Create folder ~/unison on the Sailfish device.</p>
+<p>$ unison ~/unison ssh://speactra@mail.speactra.se/unison -ignorearchives<br />
+Do " , " on all options (sync from the server to your device). Complete with "y".</p>
+<p><code><br />
+$ cp ~/unison/syncunison_sailfish /home/nemo/syncunison<br />
+$ chmod +x ~/syncunison<br />
+$ ./syncunison<br />
+$ devel-su cp ~/syncunison /usr/bin/<br />
+$ devel-su cp ~/unison/syncunison.desktop /usr/share/applications/<br />
+</code></p>
+<h5>Sync with linux-desktop </h5>
+<p>Copy excecutable unison-2-48-3 to your desktop computer. (Ask me if you don't find it)<br />
+$ sudo cp unison-2-48-3 /usr/bin/unison<br />
+$ unison ~/unison ssh://server/unison -ignorearchives<br />
+Do " , " on all options (sync from the server to your device). Complete with "y".</p>
+<h4>Install KDE Marble Maps</h4>
+<p>Download RPM here for sfos armv7hl<br />
+<a href="https://build.merproject.org/package/show/home:kossebau:sailfishos:devel:apps/marble" target="_blank">https://build.merproject.org/package/show/home:kossebau:sailfishos:devel:apps/marble</a></p>
+<p>In Sailfish, install Qtscript<br />
+<code>$ pkcon install qt5-qtscript</code></p>
+<p>Install the RPM.</p>
+<p><em><a href="https://frinring.wordpress.com/2015/11/25/marble-maps-forking-for-sailfishos/" target="_blank">source: https://frinring.wordpress.com/2015/11/25/marble-maps-forking-for-sailfishos/</a></em></p>
+<h2>Developing</h2>
+<h4>Presentations</h4>
+<p>Vesa-Matti Hartikainen "Developing applications for Jolla's Sailfish OS ", SmartDevCon 2013<br />
+<a href="https://www.youtube.com/watch?v=CiWqSIyqqAc" target="_blank">https://www.youtube.com/watch?v=CiWqSIyqqAc</a></p>
+<h4>SSH to the SailfishOS emulator:</h4>
+<p><code>ssh -p 2223 nemo@localhost</code></p>
+<h4>Qt documentation</h4>
+<p><a href="http://doc.qt.io/qt-5/index.html" target="_blank">http://doc.qt.io/qt-5/index.html</a></p>
+<h4>QML Tutorials</h4>
+<p>Youtube playlist: <a href="https://www.youtube.com/playlist?list=PLB22HyVdO1GkLFrvRi5vIo5XcWS0EflxD" target="_blank">https://www.youtube.com/playlist?list=PLB22HyVdO1GkLFrvRi5vIo5XcWS0EflxD</a></p>
+<h4>HTML Entities</h4>
+<p><a href="http://www.danshort.com/HTMLentities/" target="_blank">http://www.danshort.com/HTMLentities/</a></p>
+<h4>Sailfish icons</h4>
+<p><a href="https://sailfishos.org/develop/docs/jolla-ambient/" target="_blank">https://sailfishos.org/develop/docs/jolla-ambient/</a></p>
+<h4>Unofficial Sailfish OS third party open source apps collection</h4>
+<p><a href="https://github.com/sailfishapps/" target="_blank">https://github.com/sailfishapps/</a></p>
