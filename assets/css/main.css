@@ -389,6 +389,20 @@ th, td {
 	color: #fe5000;
 }
 
+.fa-spotify {
+  padding: 5px;
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-spotify:hover {
+	color: #1db954;
+}
+
+
 .fa-twitter {
   padding: 5px;
 	-o-transition:.5s;
