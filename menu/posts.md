@@ -24,10 +24,9 @@ title: Posts
 
   {% endfor %}
 </ul>
-
 ---
 
-***Posts in category Music are:***
+**Posts in category Music are:**
 
 <ul>
   {% for post in site.categories.music %}
