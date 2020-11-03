@@ -2,11 +2,9 @@
 layout: page
 title: Posts
 ---
-
 **Posts in category Jolla are:**
 <ul class="posts">
   {% for post in site.categories.jolla %}
-
     {% unless post.next %}
       <h3>{{ post.date | date: '%Y' }}</h3>
     {% else %}
@@ -16,18 +14,14 @@ title: Posts
         <h3>{{ post.date | date: '%Y' }}</h3>
       {% endif %}
     {% endunless %}
-
     <li itemscope>
       <a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a>
       <p class="post-date"><span><i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date: "%B %-d" }} - <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</span></p>
     </li>
-
   {% endfor %}
 </ul>
 ---
-
 **Posts in category Music are:**
-
 <ul>
   {% for post in site.categories.music %}
     {% if post.url %}
@@ -35,9 +29,7 @@ title: Posts
     {% endif %}
   {% endfor %}
 </ul>
-
 ---
-
 **All posts:**
 <ul class="posts">
   {% for post in site.posts %}
@@ -51,12 +43,9 @@ title: Posts
         <h3>{{ post.date | date: '%Y' }}</h3>
       {% endif %}
     {% endunless %}
-
     <li itemscope>
       <a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a>
       <p class="post-date"><span><i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date: "%B %-d" }} - <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</span></p>
     </li>
-
   {% endfor %}
 </ul>
-
