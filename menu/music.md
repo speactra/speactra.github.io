@@ -2,7 +2,6 @@
 layout: page
 title: Music
 ---
-## My music
 
 My music will be available for download or listening on this page.
 
