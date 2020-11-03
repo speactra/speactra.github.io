@@ -16,7 +16,7 @@ title: Posts
 <p>Posts in category Music are:</p>
 
 <ul>
-  {% for post in site.categories.jolla %}
+  {% for post in site.categories.music %}
     {% if post.url %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endif %}
