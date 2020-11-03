@@ -3,7 +3,7 @@ layout: page
 title: Posts
 ---
 
-<p>Posts in category Jolla are:</p>
+**Posts in category Jolla are:**
 <ul class="posts">
   {% for post in site.categories.jolla %}
 
@@ -25,7 +25,9 @@ title: Posts
   {% endfor %}
 </ul>
 
-<p>Posts in category Music are:</p>
+---
+
+***Posts in category Music are:***
 
 <ul>
   {% for post in site.categories.music %}
@@ -35,7 +37,9 @@ title: Posts
   {% endfor %}
 </ul>
 
-<p>All posts:</p>
+---
+
+**All posts:**
 <ul class="posts">
   {% for post in site.posts %}
 
