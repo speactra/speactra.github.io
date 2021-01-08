@@ -56,14 +56,14 @@ Creates: .ssh/id_rsa.pub</p>
 <p>If ~/.ssh does not exist on the target server, create it.<br />
 <code>$ ssh user@serverurl mkdir -p .ssh</code></p>
 <p>Send the certificate to target server:<br />
-<code>$ cat .ssh/id_rsa.pub | ssh speactra@speactra.mail.se 'cat >> .ssh/authorized_keys'</code></p>
+<code>$ cat .ssh/id_rsa.pub | ssh user@serverurl 'cat >> .ssh/authorized_keys'</code></p>
 <p>---<br />
 Optionally:<br />
 ssh-keygen<br />
 ssh-copy-id [serverurl]</p>
 <h5> Sync with Sailfish OS device </h5>
 <p>Create folder ~/unison on the Sailfish device.</p>
-<p>$ unison ~/unison ssh://speactra@mail.speactra.se/unison -ignorearchives<br />
+<p>$ unison ~/unison ssh://user@serverurl/unison -ignorearchives<br />
 Do " , " on all options (sync from the server to your device). Complete with "y".</p>
 <p><code><br />
 $ cp ~/unison/syncunison_sailfish /home/nemo/syncunison<br />
